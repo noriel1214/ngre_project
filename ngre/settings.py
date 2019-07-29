@@ -115,7 +115,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_L10N = True
-    os.path.join(BASE_DIR, 'ngre/static')
+ 
 USE_TZ = True
 
 
