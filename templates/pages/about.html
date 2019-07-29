@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+<section id="showcase-inner" class="py-4 text-white">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <h1 class="display-4">About NG Real Estate</h1>
+                <p class="lead">We are a real estate company that serve the five bouroughs of New Jersey. We cater to a variety of services pertaining to real estate.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Breadcrumb-->
+<section id="bc" class="mt-3">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{ url 'index' %}">
+                        <i class="fas fa-home"> </i> Home
+                    </a>
+                </li>
+                <li class="breadcrumb-item active">About</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<section id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>We Search For the Perfect Home</h2>
+                <p>We will help you find the home that will closely match your desired home specs</p>
+                <img src="{% static 'img/about.jpg' %}" alt="">
+                <p class="mt-5">We will support you and will never stop expending our resources until you are satisfied with the home of your dreams. 
+                    We will help you throughout the process, using our years of experience and our accumulated expertise.
+                You can count on us and we back our promise with a guarantee or your money back.</p>
+            </div>
+            <div class="col-md-4">
+                {% if mvp_realtors %}
+                    {% for realtor in mvp_realtors %}
+                        <div class="card">
+                            <img src="{{ realtor.photo.url }}" alt="Seller of the Month" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Seller of the Month</h5>
+                                <h6 class="text-secondary">{{ realtor.name }} - {{realtor.phone}}</h6>
+                                <p class="card-text">{{ realtor.description }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="work" class="bg-secondary text-center text-white">
+    <h2>We Work Hard For You</h2>
+    <h4>Feel free to browse the resources that we have made available in this web site.</h4>
+    <hr>
+    <a href="{% url 'listings' %}" class="btn btn-primary text-white btn-lg">View Our Featured Listings</a>
+</section>
+
+<section id="team" class="py-5">
+    <div class="container">
+        <h2 class="text-center">
+            Our Team
+        </h2>
+        <div class="row text-center">
+            {% if realtors %}
+            {% for realtor in realtors %}
+            <div class="col-md-4">
+                <img src="{{ realtor.photo.url }}" alt="" class="rounded-circle mb-3">
+                <h4>{{ realtor.name }}</h4>
+                <p class="text-info"><i class="fas fa-award"></i> Realtor </p>
+                <hr>
+                <p><i class="fas fa-phone"></i> {{ realtor.phone }}</p>
+                <p><i class="fas fa-email"></i> {{ realtor.email }}</p>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

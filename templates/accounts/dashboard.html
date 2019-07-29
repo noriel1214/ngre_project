@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <h1 class="display-4">User Dashboard</h1>
+                <p class="lead">This is your dashboard. Here are the inquiries you've made altogether.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="bc" class="py-5">
+    <div class="container">
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item mr-3">
+                    <a href="{% url 'index' %}">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="breadcrumb-item active">
+                    Dashboard
+                </li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+{% include 'partials/_alerts.html' %}
+
+<section id="dashboard" class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Welcome {{ user.username }} </h2>
+                {% if contacts %}
+                
+                    <p>Here are the inquiries you have made:</p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="cols">Property</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                {% for contact in contacts %}
+                            <tr>
+                                <td> {{contact.listing_id}} </td>
+                                <td>{{contact.address}} </td>
+                                <td> <a href=" {% url 'listing' contact.listing_id %} " class="btn btn-light">View Listing</a> </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    
+                {% endif %}
+            </div>
+        </div>
+    </div>  
+</section>
+
+{% endblock %}
