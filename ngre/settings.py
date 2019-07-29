@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -23,6 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*i5vz#vrjgt6ehn39$dh%ff99(+_d(qpm09^de5wmnnk)!2mgn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -92,6 +92,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
+
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
@@ -114,7 +115,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_L10N = True
-
+    os.path.join(BASE_DIR, 'ngre/static')
 USE_TZ = True
 
 
@@ -123,8 +124,7 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'ngre/static')
+STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'ngre/static')
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
