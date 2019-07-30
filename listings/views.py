@@ -46,14 +46,12 @@ def search(request):
         if price:
             queryset_list=queryset_list.filter(price__lte=price)
 
-
-
     context = {
         'listings': queryset_list,
         'values':request.GET,
         'state_choices':state_choices,
         'price_choices':price_choices,
-        'bedroom_choices':bedroom_choices
+        'bedroom_choices':bedroom_choices,
     }
     return render(request, 'listings/search.html', context)
 

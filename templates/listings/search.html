@@ -7,31 +7,32 @@
     <div class="container">
         <div class="row text-center">
             <div class="col-md-12">
-                <form action="{% url 'search' %}" method="POST">
+                <form action="{% url 'search' %}">
                     {% csrf_token %}
                     <div class="form-row">
                         <div class="col-md-4 form-group">
                             <label for="keywords" class="sr-only">Keywords</label>
-                            <input type="text" name="keyword" id="keywords" class="form-control"  value=" {{values.keywords}} ">
+                            <input type="text" name="keyword" id="keywords" class="form-control"  value="{{values.keywords}}">
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="city" class="sr-only">City</label>
-                            <input type="text" name="city" id="city" class="form-control" value=" {{values.city}} ">
+                            <input type="text" name="city" id="city" class="form-control" value="{{values.city}}">
                         </div>
-                        <div class="col-md-4 form-group">
-                            <label for="state" class="sr-only">State</label>
-                            <select name="state" id="state" class="form-control">
-                                <option selected="true" disabled>State (All)</option>
-                                {% for key,val in state_choices.items %}
-                                    <option value=" {{key}} "
-                                    {% if key == "{{values.state}}" %}
+                        <div class="col-md-4 mb-3">
+                                <label class="sr-only">State</label>
+                                <select name="state" class="form-control">
+                                  <option selected="true" disabled="disabled">State (All)</option>
+                                  {% for key,value in state_choices.items %}
+                                      <option value="{{ key }}" 
+                                      {% if key == values.state %}
                                         selected
-                                    {% endif %}
-                                    >{{val}}</option>
-                                {%endfor%}
-                            </select>
-                        </div>
-                    </div>
+                                      {% endif %}
+                                      >{{ value }}</option>
+                                    {% endfor %}
+                                </select>
+                              </div>
+                            </div>
+
                     <div class="form-row">
                         <div class="col-md-6 form-group">
                             <label for="bedrooms" class="sr-only">Bedrooms</label>
@@ -93,6 +94,7 @@
 <section id="listings" class="py-4">
     <div class="container">
         <div class="row">
+            {% if listings %}
             {% for listing in listings %}
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="card listing-preview">
@@ -136,6 +138,7 @@
                 </div>
             </div>
             {% endfor %}
+            {% endif %}
         </div>
     </div>
 </section>
