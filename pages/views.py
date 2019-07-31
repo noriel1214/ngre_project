@@ -3,7 +3,7 @@ from listings.models import Listing
 from realtors.models import Realtor
 
 def index(request):
-    listings = Listing.objects.order_by('-list_date')[:3]
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
     context = {
         'listings':listings
     }
@@ -17,3 +17,12 @@ def about(request):
         'mvp_realtors': mvp_realtors
     }
     return render(request, 'pages/about.html', context)
+
+def acctsvcs(request):
+    return render(request, 'pages/acctsvcs.html')
+
+def taxsvcs(request):
+    return render(request, 'pages/taxsvcs.html')
+
+def contactus(request):
+    return render(request, 'pages/contactus.html')
