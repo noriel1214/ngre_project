@@ -8,9 +8,9 @@
 
 <section id="showcase">
     <div class="container text-center">
-        <div class="home-search p-5">
+        <div class="home-search p-3">
             <div class="overlay bg-transparent p-5">
-                <h1 class="display-4 mb-4 text-primary font-italic font-weight-bold font-csgd">
+                <h1 class="display-4 mb-4 text-danger font-italic font-weight-bold font-csgd">
                     Our company is dedicate to helping yours succeed.
                 </h1>
                 <p class="lead"></p>
@@ -112,11 +112,13 @@
             <p class="lead">Fill out the contact form below and one of our experienced staff will get in touch with you shortly.</p>
         </div>
         </div>
+        <form action="{% url 'contact' %}" method="POST">
+            {% csrf_token %}
         <div class="row">
                 <div class="col-md-4 px-0 mb-4">
-                        <label for="phone">First Name *</label>
+                        <label for="phone">Name *</label>
                         <div class="input-group">
-                        <input type="text" name="firstname" class="form-control" aria-label="First Name">
+                        <input type="text" name="name" class="form-control" aria-label="Name">
                         <div class="input-group-append">
                           <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
@@ -150,10 +152,11 @@
                             </div>
                             </div>
                     </div>
-                    <button type="submit" class="btn btn-secondary mx-auto text-white my-4">Submit</button>
-                </div>
-            
-        </div>  
+                    </div>
+                    </div>
+                    <button type="submit" class="mx-auto btn btn-secondary  text-white my-4">Submit</button>
+                     </form> 
+         
     </div>  
 </section>
 
