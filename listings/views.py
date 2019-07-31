@@ -3,6 +3,13 @@ from .models import Listing
 from .choices import state_choices, bedroom_choices, price_choices
 from django.http import HttpResponse
 
+def aboutcpa(request, listing_id):
+    listing = get_object_or_404(Listing, pk=listing_id)
+    context ={
+        'listing':listing
+    }
+    return render(request, 'listings/aboutcpa.html', context)
+
 def index(request):
     listings = Listing.objects.order_by('-list_date')
     context = {

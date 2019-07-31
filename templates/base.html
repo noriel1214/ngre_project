@@ -33,6 +33,24 @@
   <script src="{% static 'js/bootstrap.bundle.min.js' %} "></script>
   <script src="{% static 'js/lightbox.min.js' %} "></script>
   <script src="{% static 'js/main.js' %} "></script>
+  <script>
+    function initMap(){
+        var location = {lat: 15.212, lng: 120.583 };
+        var map = new google.maps.Map(document.getElementById("googlemap"), {
+            zoom: 15,
+            center:location
+        });
+        var marker = new google.maps.Marker(
+          {
+            position:location,
+            map:map
+          });
+    }
+
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAG1sBrhn-DUaSSsYdciYDtXQCYF7s_JRk&callback=initMap"
+   type="text/javascript"></script>
+
 </body>
 
 </html>

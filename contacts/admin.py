@@ -3,6 +3,6 @@ from .models import Contact
 from django.contrib import admin
 
 class ContactsAdmin(admin.ModelAdmin):
-    list_display=('listing_id', 'address', 'name', 'email', 'phone')
+    list_display=('firstname', 'lastname', 'phone', 'email')
 
 admin.site.register(Contact, ContactsAdmin)

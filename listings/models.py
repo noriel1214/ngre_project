@@ -5,11 +5,11 @@ from datetime import datetime
 
 class Listing(models.Model):
     realtor = models.ForeignKey(Realtor, on_delete=models.DO_NOTHING)
-    title = models.CharField(max_length=200)
-    address = models.CharField(max_length=200)
-    city = models.CharField(max_length=100)
-    state = models.CharField(max_length=2, choices=state_choices.items())
-    zipcode = models.CharField(max_length=10)
+    title = models.CharField(max_length=2000)
+    address = models.CharField(max_length=2000)
+    city = models.CharField(max_length=2000, blank=True)
+    state = models.CharField(max_length=2000, blank=True)
+    zipcode = models.CharField(max_length=2000)
     price = models.IntegerField()
     bedrooms = models.IntegerField()
     garage = models.IntegerField(default=0)

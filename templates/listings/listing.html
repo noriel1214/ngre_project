@@ -1,17 +1,14 @@
 {% extends 'base.html' %}
 
 {% load humanize %}
+{% load static %}
 {% block content %}
 
-<section id="showcase-inner" class="py-5 text-white">
+<section id="showcase-inner" class="py-3 text-white font-csgd">
     <div class="container">
         <div class="row text-center">
             <div class="col-md-12">
                 <h1 class="display-4">{{listing.title}}</h1>
-            <p class="lead">
-                <i class="fas fa-map-marker"></i>
-                {{listing.city}}, {{listing.state}} {{listing.zipcode}}
-            </p>
         </div>
         </div>
     </div>
@@ -22,15 +19,11 @@
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                <a href="{% url 'index' %}">
+                <a href="{% url 'index' %}#listings">
                         <i class="fas fa-home"></i> Home
                 </a>               
                 </li>
-                <li class="breadcrumb-item">
-                    <a href="{% url 'listings' %}">
-                        Listings
-                    </a>
-                </li>
+
                 <li class="breadcrumb-item active">
                     {{listing.title}}
                 </li>
@@ -42,111 +35,38 @@
 {% include 'partials/_alerts.html' %}
 
 
-<section id="Listing">
+<section id="Listing" class="font-csgd">
     <div class="container">
-        <a href="{% url 'listings' %}" class="btn btn-light mb-4">Back To Listings</a>
         
     <div class="row">
-        <div class="col-md-9">
-            <img src="{{listing.photo_main.url}}" alt="" class="img-main img-fluid mb-3">
-            <div class="row mb-5 thumbs">
-                {% if listing.photo_1 %}
-                <div class="col-md-2">
-                    <a href="{{ listing.photo_1.url }}" data-lightbox="home-images">
-                        <img src="{{ listing.photo_1.url }}" alt="" class="image-fluid">
-                    </a>
-                </div>
-                {% endif %}
-                {% if listing.photo_2 %}
-                    <div class="col-md-2">
-                        <a href="{{ listing.photo_2.url}}" data-lightbox="home-images">
-                            <img src="{{ listing.photo_2.url }} " alt="" class="image-fluid">
-                        </a>                        
-                </div>
-                {% endif %}
-                {% if listing.photo_3 %}
-                <div class="col-md-2">
-                    <a href=" {{ listing.photo_3.url }}" data-lightbox="home-images">
-                        <img src=" {{ listing.photo_3.url }}" alt="" class="image-fluid">
-                    </a>
-                </div>
-                {% endif %}
-                {% if listing.photo_4 %}
-                <div class="col-md-2">
-                    <a href=" {{ listing.photo_4.url }} " data-lightbox="home-images">
-                        <img src=" {{ listing.photo_4.url }} " alt="" class="image-fluid">
-                    </a>
-                </div>
-                {% endif %}
-                {% if listing.photo_5 %}
-                <div class="col-md-2">
-                        <a href=" {{ listing.photo_5.url }} " data-lightbox="home-images">
-                            <img src=" {{ listing.photo_5.url }} " alt="" class="image-fluid">
-                        </a>
-                    </div>
-                    {% endif %}
-                {% if listing.photo_6 %}
-                    <div class="col-md-2">
-                            <a href=" {{ listing.photo_6.url }} " data-lightbox="home-images">
-                                <img src=" {{ listing.photo_6.url }} " alt="" class="image-fluid">
-                            </a>
-                        </div>       
-                        {% endif %}
-                                      
-            </div>
+ 
+        <div id="content" class="col-xs-12 col-md-9">
+    
 
-            <div class="row mb-5 text-secondary fields">
-                <div class="col-md-6">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <i class="fas fa-money-bill-alt"></i> Asking Price: <span class="float-right">${{listing.price | intcomma}}</span>
-                        </li>
-                        <li class="list-group-item">
-                            <i class="fas fa-bed"></i> Bedrooms: <span class="float-right">{{ listing.bedrooms }}</span>
-                        </li>
-                        <li class="list-group-item">
-                            <i class="fas fa-bath"></i> Bathrooms: <span class="float-right">{{ listing.bathrooms}}</span>
-                        </li>
-                        <li class="list-group-item">
-                            <i class="fas fa-car"></i> Garage: <span class="float-right">{{ listing.garage}}</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <i class="fas fa-th-large"></i> Square Feet: <span class="float-right">{{ listing.sqft }}</span>
-                        </li>
-                        <li class="list-group-item">
-                            <i class="fas fa-square"></i> Lot Size: <span class="float-right"> {{listing.lotsize}} </span>
-                        </li>
-                        <li class="list-group-item">
-                            <i class="fas fa-calendar"></i> Days in Market: <span class="float-right"> {{listing.list_date | timesince}} </span>
-                        </li>
-                        <li class="list-group-item">
-                            <i class="fas fa-user"></i>Realtor: <span class="float-right"> {{listing.realtor}} </span>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-
-            <div class="row mb-5">
-                <div class="col-md-12">
-                    <p> {{listing.description}} </p>
-                </div>
-            </div>
-
-        </div>
+            <img style="float: left; margin-right: 15px; max-height: 250px; max-width:250px" src="{{ listing.photo_main.url  }}" alt="Accounting small businesses at Clark Global City">
+            
+            <p>{{ listing.address }}</p>
+            <p>{{ listing.city }}</p>
+            <p>{{ listing.state }}</p>
+            
+            <!--<p>Leverage the insights we've gained from years of experience working with all types of small business owners, call <strong>507-334-3302</strong> and <a href="consultation.htm">request a free consultation</a> now.</p>
+            
+            <ul>
+            <li>Accounting for all types of small businesses</li>
+            </ul>-->
+               </div>
 
         <div class="col-md-3">
-            <div class="card">
-                <img src="{{ listing.realtor.photo.url }}" alt="" class="card-img-top">
-                <div class="card-body text-info">
-                    <h4>Property Realtor</h4>
-                    <p class="lead">{{listing.realtor.name}}</p>
+            <div class="card">       
+                <div class="card-body">
+                    <h5>Get a FREE consultation!</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <i class="fas fa-comments text-secondary float-left mr-3"></i> Find out how we can serve you! Call (0917)-326-4209 or request a free consultation.
+                        </li>
+                    </ul>
                 </div>
-                <a class="btn bg-primary text-white btn-lg" data-toggle="modal" data-target="#inquiryModal">Make An Inquiry</a>
+                <a class="btn bg-info text-white btn-lg" data-toggle="modal" data-target="#inquiryModal">Get Started</a>
             </div>
         </div>
     </div>

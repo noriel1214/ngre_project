@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+{% load static %}
+{% block content %}
+
+<section id="showcase-inner" class="py-3 text-white font-csgd">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <h1 class="display-4">{{listing.title}}</h1>
+        </div>
+        </div>
+    </div>
+</section>
+
+<section id="bc" class="py-3">
+    <div class="container">
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                <a href="{% url 'index' %}#listings">
+                        <i class="fas fa-home"></i> Home
+                </a>               
+                </li>
+
+                <li class="breadcrumb-item active">
+                    {{listing.title}}
+                </li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+{% include 'partials/_alerts.html' %}
+
+
+<section id="Listing" class="font-csgd">
+    <div class="container">
+        
+    <div class="row">
+ 
+        <div id="content" class="col-xs-12 col-md-9">
+    
+
+            <img style="float: left; margin-right: 15px; max-height: 250px; max-width:250px" src="{{ listing.photo_main.url  }}" alt="Accounting small businesses at Clark Global City">
+            
+            <p>{{ listing.address }}</p>
+            <p>{{ listing.city }}</p>
+            <p>{{ listing.state }}</p>
+            
+            <hr>
+            <div class="row">
+            <div class="col-md-3">
+                <img src="{{ listing.photo_1.url }}" alt="">
+            </div>
+
+            <div class="col-md-9">
+                <h4 class="font-bold">Crisanta G. Dizon, CPA</h4>
+                <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                           <i class="fas fa-circle fa-xs"></i> Holds a degree in Accounting from Holy Angel University and a Master's Degree in Accountancy from Angeles University Foundation
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-circle fa-xs"></i> Over 30 years experience helping small businesses and individuals with their accounting, financial and tax needs.
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-circle fa-xs"></i> Experience working with businesses of all sizes from part-time, home-based businesses to multi-million peso corporations.
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-circle fa-xs"></i> BIR tax problem resolution experience from correspondence through audits and offers in compromise.
+                        </li>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fas fa-circle fa-xs"></i> Cris has been married for over 23 years to her husband, Paul, and they have two children who are now professionals in their own careers.
+                    </li>
+
+
+
+                    </ul>
+            </div>
+
+            <div class="col-md-9">
+
+            </div>
+
+            </div>
+
+
+               </div>
+
+        <div class="col-md-3">
+            <div class="card">       
+                <div class="card-body">
+                    <h5>Get a FREE consultation!</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <i class="fas fa-comments text-secondary float-left mr-3"></i> Find out how we can serve you! Call (0917)-326-4209 or request a free consultation.
+                        </li>
+                    </ul>
+                </div>
+                <a class="btn bg-info text-white btn-lg" data-toggle="modal" data-target="#inquiryModal">Get Started</a>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+</section>
+
+
+
+
+{% endblock %}
