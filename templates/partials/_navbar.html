@@ -26,16 +26,16 @@
               class="dropdown nav-item mr-3"
             {% endif %}
           >
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Accounting Services <b class="caret"></b></a>
-                <ul style="white-space: nowrap" class="dropdown-menu text-capitalize" role="menu">
-                <li><a href="{% url 'listing' 6 %}" class="nowrap">&nbsp;&nbsp;Small Business Accounting&nbsp;&nbsp;</a></li>
-                <li><a href="{% url 'listing' 10 %}">&nbsp;&nbsp;Incorporation Consulting&nbsp;&nbsp;</a></li>
-                <li><a href="{% url 'listing' 8 %}">&nbsp;&nbsp;QuickBooks Services&nbsp;&nbsp;</a></li>
-                <li><a href="{% url 'listing' 7 %}">&nbsp;&nbsp;Business and Financial Consulting&nbsp;&nbsp;</a></li>
-                <li><a href="{% url 'listing' 11 %}">&nbsp;&nbsp;Payroll Services&nbsp;&nbsp;</a></li>
-                <li><a href="{% url 'listing' 7 %}">&nbsp;&nbsp;Outsourced Accounting Bookkeeping&nbsp;&nbsp;</a></li>
-                <li><a href="{% url 'listing' 12 %}">&nbsp;&nbsp;Outsourced CFO Controllership&nbsp;&nbsp;</a></li>
-                <li><a href="{% url 'listing' 13 %}">&nbsp;&nbsp;All Accounting Services&nbsp;&nbsp;</a></li>
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" style="z-index: 99">Accounting Services <b class="caret"></b></a>
+                <ul style="white-space: nowrap; z-index: 99" class="dropdown-menu text-capitalize" role="menu">
+                <li><a href="{% url 'listing' 1 %}" class="nowrap">&nbsp;&nbsp;Small Business Accounting&nbsp;&nbsp;</a></li>
+                <li><a href="{% url 'listing' 2 %}">&nbsp;&nbsp;Incorporation Consulting&nbsp;&nbsp;</a></li>
+                <li><a href="{% url 'listing' 3 %}">&nbsp;&nbsp;QuickBooks Services&nbsp;&nbsp;</a></li>
+                <li><a href="{% url 'listing' 2 %}">&nbsp;&nbsp;Business and Financial Consulting&nbsp;&nbsp;</a></li>
+                <li><a href="{% url 'listing' 6 %}">&nbsp;&nbsp;Payroll Services&nbsp;&nbsp;</a></li>
+                <li><a href="{% url 'listing' 8 %}">&nbsp;&nbsp;Outsourced Accounting Bookkeeping&nbsp;&nbsp;</a></li>
+                <li><a href="{% url 'listing' 9 %}">&nbsp;&nbsp;Outsourced CFO Controllership&nbsp;&nbsp;</a></li>
+                <li><a href="{% url 'listing' 10 %}">&nbsp;&nbsp;All Accounting Services&nbsp;&nbsp;</a></li>
                 </ul>
               </li>
               <li
@@ -47,10 +47,10 @@
             >
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Tax Services <b class="caret"></b></a>
                   <ul style="white-space: nowrap" class="dropdown-menu text-capitalize" role="menu">
-                  <li><a href="{% url 'listing' 14 %}" class="nowrap">&nbsp;&nbsp;Tax Preparation&nbsp;&nbsp;</a></li>
-                  <li><a href="{% url 'listing' 15 %}">&nbsp;&nbsp;Tax Planning&nbsp;&nbsp;</a></li>
-                  <li><a href="{% url 'listing' 17 %}">&nbsp;&nbsp;BIR Problem Resolution&nbsp;&nbsp;</a></li>
-                  <li><a href="{% url 'listing' 16 %}">&nbsp;&nbsp;All Tax Services&nbsp;&nbsp;</a></li>
+                  <li><a href="{% url 'listing' 11 %}" class="nowrap">&nbsp;&nbsp;Tax Preparation&nbsp;&nbsp;</a></li>
+                  <li><a href="{% url 'listing' 12 %}">&nbsp;&nbsp;Tax Planning&nbsp;&nbsp;</a></li>
+                  <li><a href="{% url 'listing' 13 %}">&nbsp;&nbsp;BIR Problem Resolution&nbsp;&nbsp;</a></li>
+                  <li><a href="{% url 'listing' 14 %}">&nbsp;&nbsp;All Tax Services&nbsp;&nbsp;</a></li>
                   </ul>
                 </li>
 
@@ -61,7 +61,7 @@
             class="nav-item mr-3"
           {% endif %}
         >
-          <a class="nav-link" href="{% url 'aboutcpa' 18 %}">About Us</a>
+          <a class="nav-link" href="{% url 'aboutcpa' 15 %}">About Us</a>
         </li>
 
         <li
